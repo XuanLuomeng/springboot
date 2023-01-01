@@ -3,6 +3,7 @@ package com.atguigu.config;
 import com.atguigu.pojo.Student;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 
 /**
  * Configuration:标识当前类作为配置文件使用，用于配置容器
@@ -10,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * SpringConfig这个类就相当于beans.xml
  */
 @Configuration
+@ImportResource(value = "classpath:applicationContext.xml")
 public class SpringConfig {
     /**
      * 创建方法，方法的返回值是对象，在方法的上面加入@Bean
@@ -29,5 +31,16 @@ public class SpringConfig {
         return s1;
     }
 
-    
+    /**
+     * 指定对象在容器中的名称(指定<bean>的id属性)
+     * @Bean的name属性:指定对象的名称(id)
+     */
+    @Bean(name = "lisiStudent")
+    public Student makeStudent(){
+        Student s2 = new Student();
+        s2.setName("李四");
+        s2.setAge(19);
+        s2.setSex("男");
+        return s2;
+    }
 }

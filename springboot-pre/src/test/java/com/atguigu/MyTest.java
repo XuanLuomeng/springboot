@@ -1,6 +1,7 @@
 package com.atguigu;
 
 import com.atguigu.config.SpringConfig;
+import com.atguigu.pojo.Cat;
 import com.atguigu.pojo.Student;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -28,4 +29,19 @@ public class MyTest {
         Student student = (Student) context.getBean("createStudent");
         System.out.println("使用JavaConfig创建的bean对象:"+student);
     }
+
+    @Test
+    public void test03(){
+        ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+        Student student = (Student) context.getBean("lisiStudent");
+        System.out.println("使用JavaConfig创建的bean对象:"+student);
+    }
+
+    @Test
+    public void test04(){
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
+        Cat cat = (Cat) ctx.getBean("myCat");
+        System.out.println("cat=="+cat);
+    }
+
 }
