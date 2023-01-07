@@ -3,6 +3,7 @@ package com.atguigu;
 import com.atguigu.config.SpringConfig;
 import com.atguigu.pojo.Cat;
 import com.atguigu.pojo.Student;
+import com.atguigu.pojo.Tiger;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -42,6 +43,13 @@ public class MyTest {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
         Cat cat = (Cat) ctx.getBean("myCat");
         System.out.println("cat=="+cat);
+    }
+
+    @Test
+    public void test05(){
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
+        Tiger tiger = (Tiger) ctx.getBean("tiger");
+        System.out.println("tiger=="+tiger);
     }
 
 }
